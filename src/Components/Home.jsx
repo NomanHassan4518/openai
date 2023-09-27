@@ -1,12 +1,13 @@
 import { React, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import LatestUpdate from './LatestUpdate';
+import Safety from './Safety';
 
 const Home = () => {
     const [isPlaying, setIsPlaying] = useState(false);
     const videoRef = useRef(null);
 
-  
+
 
     const handlePause = () => {
         const video = videoRef.current;
@@ -25,16 +26,16 @@ const Home = () => {
 
     let homeLinks = [
         {
-            title:"Pioneering research on the path to AGI",
-            linkName:"Learn about our research"
+            title: "Pioneering research on the path to AGI",
+            linkName: "Learn about our research"
         },
         {
-            title:"Transforming work and creativity with AI",
-            linkName:"Explore our products"
+            title: "Transforming work and creativity with AI",
+            linkName: "Explore our products"
         },
         {
-            title:"Join us in shaping the future of technology",
-            linkName:"View careers"
+            title: "Join us in shaping the future of technology",
+            linkName: "View careers"
         },
     ]
     return (
@@ -81,27 +82,31 @@ const Home = () => {
             </div>
 
             <div className='bg-black text-white'>
-              <div className="grid grid-cols-3 mx-4 py-16 ">
-                {
-                    homeLinks.map((item , index) =>(
-                        <Link to="" key={index}>
-                            <div className=' '>
-                                <h1 className='font-bold text-3xl mb-3'>{item.title}</h1>
-                                <Link to="/" className=' text-xl relative after:w-full after:h-[1.7px] after:bg-white after:absolute after:top-7 after:left-0'>{item.linkName}</Link>
-                            </div>
-                        </Link>
-                    ))
-                }
-              </div>
+                <div className="grid grid-cols-3 mx-4 py-16 ">
+                    {
+                        homeLinks.map((item, index) => (
+                            <Link to="" key={index}>
+                                <div className=' '>
+                                    <h1 className='font-bold text-3xl mb-3'>{item.title}</h1>
+                                    <Link to="/" className=' text-xl relative after:w-full after:h-[1.7px] after:bg-white after:absolute after:top-7 after:left-0'>{item.linkName}</Link>
+                                </div>
+                            </Link>
+                        ))
+                    }
+                </div>
 
-              <div className=' px-4 mt-20'>
-              <div className='w-full bg-white h-[1.5px]'></div>
-              </div>
+                <div className=' px-4 mt-20'>
+                    <div className='w-full bg-white h-[1.5px]'></div>
+                </div>
 
             </div>
 
             <div className='bg-black text-white'>
-                <LatestUpdate/>
+                <LatestUpdate />
+            </div>
+
+            <div className="bg-black text-white">
+                <Safety />
             </div>
         </div>
     )
