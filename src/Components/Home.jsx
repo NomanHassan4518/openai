@@ -2,6 +2,9 @@ import { React, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import LatestUpdate from './LatestUpdate';
 import Safety from './Safety';
+import Research from './Research';
+import Careers from './Careers';
+import Footer from './Footer';
 
 const Home = () => {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -21,9 +24,10 @@ const Home = () => {
             }
         }
 
-        console.log(video.paused);
+        
     };
 
+ 
     let homeLinks = [
         {
             title: "Pioneering research on the path to AGI",
@@ -63,7 +67,7 @@ const Home = () => {
                         <button onClick={handlePause} className=' bg-black p-2 w-40 text-center text-xl font-semibold hover:text-black hover:bg-white '>{isPlaying === true ?
                             <div className='flex items-center w-full justify-center'>
                                 <span>
-                                    <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="a-icon--play400 a-icon--text a-icon--no-align flex mt-5 md:mt-0 f-ui-1 lg:mt-1 md:-ml-4" data-new="" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="2 2 14 8 2 14 2 2"></polygon></svg>
+                                    <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--play400 a-icon--text a-icon--no-align flex mt-5 md:mt-0 f-ui-1 lg:mt-1 md:-ml-4" data-new="" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="2 2 14 8 2 14 2 2"></polygon></svg>
                                 </span>
                                 <span>Play video</span>
                             </div>
@@ -72,7 +76,7 @@ const Home = () => {
 
                             <div className='flex items-center w-full justify-center'>
                                 <span>
-                                    <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="a-icon--pause400 a-icon--text a-icon--no-align flex mt-5 md:mt-0 f-ui-1 lg:mt-1 md:-ml-4" data-new="" style={{ width: "1em", height: "1em" }}><g data-v-cbc994d7="" fill="currentColor"><rect x="9.81" y="2" width="1.38" height="12"></rect><rect x="4.81" y="2" width="1.38" height="12"></rect></g></svg>
+                                    <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--pause400 a-icon--text a-icon--no-align flex mt-5 md:mt-0 f-ui-1 lg:mt-1 md:-ml-4" data-new="" style={{ width: "1em", height: "1em" }}><g data-v-cbc994d7="" fill="currentColor"><rect x="9.81" y="2" width="1.38" height="12"></rect><rect x="4.81" y="2" width="1.38" height="12"></rect></g></svg>
                                 </span>
                                 <span>Pause video</span>
                             </div>
@@ -108,6 +112,20 @@ const Home = () => {
             <div className="bg-black text-white">
                 <Safety />
             </div>
+
+            <div className="bg-black text-white">
+                <Research />
+            </div>
+
+            <div className="bg-black text-white">
+                <Careers />
+            </div>
+
+            <div className="bg-black text-white">
+                <Footer />
+            </div>
+
+
         </div>
     )
 }

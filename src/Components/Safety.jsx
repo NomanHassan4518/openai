@@ -17,6 +17,10 @@ const Safety = () => {
             <div className='w-full h-full mt-16'>
                 <img src="https://images.openai.com/blob/971cb9d4-66e4-46b0-95d8-f3b57931b08e/stangel-2022-0052.jpg?trim=0,0,0,0&width=1400" alt="" />
             </div>
+
+            <div className=' px-4 mt-20'>
+                <div className='w-full bg-white h-[1.5px]'></div>
+            </div>
         </div>
     )
 }

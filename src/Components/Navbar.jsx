@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
@@ -9,19 +9,19 @@ const Navbar = () => {
     const [navbarColor, setNavbarColor] = useState('transparent');
 
     useEffect(() => {
-      const handleScroll = () => {
-        const currentScrollPos = window.pageYOffset;
-        if (currentScrollPos > 20) {
-          setNavbarColor('black');
-        } else {
-          setNavbarColor('transparent');
-        }
-      };
-  
-      window.addEventListener('scroll', handleScroll);
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
+        const handleScroll = () => {
+            const currentScrollPos = window.pageYOffset;
+            if (currentScrollPos > 20) {
+                setNavbarColor('black');
+            } else {
+                setNavbarColor('transparent');
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     const resourse = () => {
@@ -86,13 +86,13 @@ const Navbar = () => {
                                         <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--chevron-up400 a-icon--text f-ui-1 a-icon--no-align flex" data-new="" aria-hidden="true" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="11.51 10.49 8 6.98 4.49 10.49 3.51 9.51 8 5.02 12.49 9.51 11.51 10.49"></polygon></svg>
                                     </span>
                                 </Link>
-                               <div className={`${resoursedropdownShow}  flex-col absolute space-y-2 mt-4`}>
-                                <Link to="/" className='font-[400] text-xl'>Overview</Link>
-                                <Link to="/" className='font-[400] text-xl'>Index</Link>
-                                <Link to="/" className='font-[400] text-xl'>GPT-4</Link>
-                                <Link to="/" className='font-[400] text-xl'>DALL·E 3</Link>
-                               
-                               </div>
+                                <div className={`${resoursedropdownShow}  flex-col absolute space-y-2 mt-4`}>
+                                    <Link to="/" className='font-[400] text-xl'>Overview</Link>
+                                    <Link to="/" className='font-[400] text-xl'>Index</Link>
+                                    <Link to="/" className='font-[400] text-xl'>GPT-4</Link>
+                                    <Link to="/" className='font-[400] text-xl'>DALL·E 3</Link>
+
+                                </div>
                             </li>
                             <li>
                                 <Link to="/" className='flex justify-center items-center  group' onClick={api}>
@@ -105,13 +105,18 @@ const Navbar = () => {
                                         <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--chevron-up400 a-icon--text f-ui-1 a-icon--no-align flex" data-new="" aria-hidden="true" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="11.51 10.49 8 6.98 4.49 10.49 3.51 9.51 8 5.02 12.49 9.51 11.51 10.49"></polygon></svg>
                                     </span>
                                 </Link>
-                               <div className={`${apidropdownShow}  flex-col absolute space-y-2 mt-4`}>
-                                <Link to="/" className='font-[400] text-xl'>Overview</Link>
-                                <Link to="/" className='font-[400] text-xl'>Data Privacy</Link>
-                                <Link to="/" className='font-[400] text-xl'>Pricing</Link>
-                                <Link to="/" className='font-[400] text-xl'>Docs</Link>
-                               
-                               </div>
+                                <div className={`${apidropdownShow}  flex-col absolute space-y-2 mt-4`}>
+                                    <Link to="/" className='font-[400] text-xl'>Overview</Link>
+                                    <Link to="/" className='font-[400] text-xl'>Data Privacy</Link>
+                                    <Link to="/" className='font-[400] text-xl'>Pricing</Link>
+                                    <Link to="/" className='font-[400] text-xl flex items-center'>
+                                        <span>Docs</span>
+                                        <span>
+                                            <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--arrow-north-east400 a-icon--text a-icon--no-align  relative f-ui-1 " data-new="" aria-hidden="true" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="5 4.31 5 5.69 9.33 5.69 2.51 12.51 3.49 13.49 10.31 6.67 10.31 11 11.69 11 11.69 4.31 5 4.31"></polygon></svg>
+                                        </span>
+                                    </Link>
+
+                                </div>
                             </li>
                             <li>
                                 <Link to="/" className='flex justify-center items-center  group' onClick={chatGPT}>
@@ -124,13 +129,18 @@ const Navbar = () => {
                                         <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--chevron-up400 a-icon--text f-ui-1 a-icon--no-align flex" data-new="" aria-hidden="true" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="11.51 10.49 8 6.98 4.49 10.49 3.51 9.51 8 5.02 12.49 9.51 11.51 10.49"></polygon></svg>
                                     </span>
                                 </Link>
-                               <div className={`${chatGPTdropdownShow}  flex-col absolute space-y-2 mt-4`}>
-                                <Link to="/" className='font-[400] text-xl'>Overview</Link>
-                                <Link to="/" className='font-[400] text-xl'>EnterPrise</Link>
-                                <Link to="/" className='font-[400] text-xl'>Pricing</Link>
-                                <Link to="/" className='font-[400] text-xl'>Try ChatGPT</Link>
-                               
-                               </div>
+                                <div className={`${chatGPTdropdownShow}  flex-col absolute space-y-2 mt-4`}>
+                                    <Link to="/" className='font-[400] text-xl'>Overview</Link>
+                                    <Link to="/" className='font-[400] text-xl'>EnterPrise</Link>
+                                    <Link to="/" className='font-[400] text-xl'>Pricing</Link>
+                                    <Link to="/" className='font-[400] text-xl flex items-center'>
+                                        <span>Try ChatGPT</span>
+                                        <span>
+                                            <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--arrow-north-east400 a-icon--text a-icon--no-align  relative f-ui-1 " data-new="" aria-hidden="true" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="5 4.31 5 5.69 9.33 5.69 2.51 12.51 3.49 13.49 10.31 6.67 10.31 11 11.69 11 11.69 4.31 5 4.31"></polygon></svg>
+                                        </span>
+                                    </Link>
+
+                                </div>
                             </li>
                             <li>
                                 <Link to="/" className='flex justify-center items-center  group'>
@@ -148,16 +158,16 @@ const Navbar = () => {
                                         <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--chevron-up400 a-icon--text f-ui-1 a-icon--no-align flex" data-new="" aria-hidden="true" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="11.51 10.49 8 6.98 4.49 10.49 3.51 9.51 8 5.02 12.49 9.51 11.51 10.49"></polygon></svg>
                                     </span>
                                 </Link>
-                               <div className={`${companydropdownShow}  flex-col absolute space-y-2 mt-4`}>
-                                <Link to="/" className='font-[400] text-xl'>About</Link>
-                                <Link to="/" className='font-[400] text-xl'>Blogs</Link>
-                                <Link to="/" className='font-[400] text-xl'>Careers</Link>
-                                <Link to="/" className='font-[400] text-xl'>Residency</Link>
-                                <Link to="/" className='font-[400] text-xl'>Charter</Link>
-                                <Link to="/" className='font-[400] text-xl'>Security</Link>
-                                <Link to="/" className='font-[400] text-xl'>Customer stories</Link>
-                               
-                               </div>
+                                <div className={`${companydropdownShow}  flex-col absolute space-y-2 mt-4`}>
+                                    <Link to="/" className='font-[400] text-xl'>About</Link>
+                                    <Link to="/" className='font-[400] text-xl'>Blogs</Link>
+                                    <Link to="/" className='font-[400] text-xl'>Careers</Link>
+                                    <Link to="/" className='font-[400] text-xl'>Residency</Link>
+                                    <Link to="/" className='font-[400] text-xl'>Charter</Link>
+                                    <Link to="/" className='font-[400] text-xl'>Security</Link>
+                                    <Link to="/" className='font-[400] text-xl'>Customer stories</Link>
+
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -169,14 +179,14 @@ const Navbar = () => {
                         <li className='flex justify-center items-center '>
                             <span>Log In</span>
                             <span>
-                            <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--arrow-north-east400 a-icon--text a-icon--no-align  relative f-ui-1 " data-new="" aria-hidden="true" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="5 4.31 5 5.69 9.33 5.69 2.51 12.51 3.49 13.49 10.31 6.67 10.31 11 11.69 11 11.69 4.31 5 4.31"></polygon></svg>
+                                <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--arrow-north-east400 a-icon--text a-icon--no-align  relative f-ui-1 " data-new="" aria-hidden="true" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="5 4.31 5 5.69 9.33 5.69 2.51 12.51 3.49 13.49 10.31 6.67 10.31 11 11.69 11 11.69 4.31 5 4.31"></polygon></svg>
                             </span>
                         </li>
                         <li>
                             <Link to="/" className='flex items-center justify-center border-2 border-white px-1 py-1 hover:bg-white hover:text-black'>
                                 <span>Try ChatGPT</span>
                                 <span>
-                                <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--arrow-north-east400 a-icon--text a-icon--no-align  relative f-ui-1 " data-new="" aria-hidden="true" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="5 4.31 5 5.69 9.33 5.69 2.51 12.51 3.49 13.49 10.31 6.67 10.31 11 11.69 11 11.69 4.31 5 4.31"></polygon></svg>
+                                    <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--arrow-north-east400 a-icon--text a-icon--no-align  relative f-ui-1 " data-new="" aria-hidden="true" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="5 4.31 5 5.69 9.33 5.69 2.51 12.51 3.49 13.49 10.31 6.67 10.31 11 11.69 11 11.69 4.31 5 4.31"></polygon></svg>
                                 </span>
                             </Link>
                         </li>
