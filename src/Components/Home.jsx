@@ -1,16 +1,36 @@
-import { React, useRef, useState } from 'react'
+import { React, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import LatestUpdate from './LatestUpdate';
 import Safety from './Safety';
 import Research from './Research';
 import Careers from './Careers';
 import Footer from './Footer';
+import { useDispatch } from 'react-redux';
+import { navcolor } from '../Components/Redux/Action/Action'
+import { useMemo } from 'react';
 
-const Home = () => {
+const Home = (props) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const videoRef = useRef(null);
+    let dispatch = useDispatch();
 
+    const computeNavColor = () => {
+        let color = {
+            beforeScroll: "bg-transparent",
+            afterScroll: "bg-black",
+            textBeforeScroll: "text-white",
+            textAfterScroll: "text-white"
+        }
+        return color
+    }
 
+    const navColor = useMemo(() => computeNavColor(), [])
+    useEffect(() => {
+
+        if (props.num === 1) {
+            dispatch(navcolor(navColor))
+        }
+    }, [dispatch, navColor, props.num])
 
     const handlePause = () => {
         const video = videoRef.current;
@@ -24,10 +44,10 @@ const Home = () => {
             }
         }
 
-        
+
     };
 
- 
+
     let homeLinks = [
         {
             title: "Pioneering research on the path to AGI",
@@ -57,7 +77,7 @@ const Home = () => {
             </div>
 
             <div className='absolute z-40 top-0    w-full h-[47rem] '>
-                <div className='flex justify-end pb-20 items-center    w-full h-full flex-col'>
+                <div className='flex justify-end pb-32 items-center    w-full h-full flex-col'>
                     <div className='text-white text-7xl font-semibold space-y-4 mr-52'>
                         <p>Creating safe AGI that</p>
                         <p>benefits all of humanity</p>

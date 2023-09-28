@@ -36,7 +36,17 @@ const Careers = () => {
       <div className=' px-4 mt-20'>
         <div className='w-full bg-white h-[1.5px]'></div>
       </div>
+      <div className="mx-4">
+        <h1 className='text-6xl pt-2'>Join us in shaping the future of technology.</h1>
+      </div>
+
+      <div className='w-full mt-20  px-4'>
+        <Link to="/" className='text-2xl border-[2px] border-white flex items-center justify-center pt-7 pb-9  text-center hover:bg-white hover:text-black'>View Careers</Link>
+      </div>
+      
     </div>
+
+    
   )
 }
 
