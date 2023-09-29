@@ -4,6 +4,7 @@ import Navbar from "./Components/Navbar";
 import Home from "./Components/Home";
 import Overview from "./Components/Research/Overview";
 import { useSelector } from "react-redux";
+import Footer from "./Components/Footer";
 
 function App() {
  let navColor = useSelector((state)=>state)
@@ -14,8 +15,9 @@ function App() {
         <Navbar nav={navColor}/>
         <Routes>
           <Route path="/"  element={<Home num="1" />}></Route>
-          <Route path="/overview" element={<Overview/>}></Route>
+          <Route path="/research/overview" element={<Overview/>}></Route>
         </Routes>
+        <Footer footer ={navColor}/>
       </BrowserRouter>
     </div>
   );

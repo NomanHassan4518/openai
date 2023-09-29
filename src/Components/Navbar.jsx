@@ -1,42 +1,32 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { navcolor } from '../Components/Redux/Action/Action'
-// import { useDispatch, useSelector } from 'react-redux'
 
 const Navbar = (props) => {
     let [resoursedropdownShow, setResourseDropdownShow] = useState("hidden");
     let [apidropdownShow, setAPIDropdownShow] = useState("hidden");
     let [chatGPTdropdownShow, setChatGPTDropdownShow] = useState("hidden");
     let [companydropdownShow, setCompanyDropdownShow] = useState("hidden");
-    let navColor = props.nav
-    const [navbarColor, setNavbarColor] = useState(navColor.beforeScroll);
-    const [textColor, setTextColor] = useState(navColor.textBeforeScroll)
+    const [navbarColor, setNavbarColor] = useState(false);
     let dispatch = useDispatch();
-    console.log(navbarColor);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollPos = window.pageYOffset;
-            if (currentScrollPos > 20) {
-                setNavbarColor(navColor.afterScroll);
-                setTextColor(navColor.textAfterScroll)
-            } else {
-                setNavbarColor(navColor.beforeScroll);
-
-                setTextColor(navColor.textBeforeScroll)
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [navColor]);
+    let navColor = props.nav
+    const changeBg = () => {
+        if (window.scrollY >= 50) {
+            setNavbarColor(true)
+        } else {
+            setNavbarColor(false)
+        }
+    }
+    window.addEventListener("scroll", changeBg)
 
     const resourse = () => {
         if (resoursedropdownShow === "hidden") {
             setResourseDropdownShow("flex")
+            setAPIDropdownShow("hidden")
+            setChatGPTDropdownShow("hidden")
+            setCompanyDropdownShow("hidden")
+
         }
 
         else {
@@ -49,6 +39,9 @@ const Navbar = (props) => {
     const api = () => {
         if (apidropdownShow === "hidden") {
             setAPIDropdownShow("flex")
+            setResourseDropdownShow("hidden")
+            setChatGPTDropdownShow("hidden")
+            setCompanyDropdownShow("hidden")
         }
 
         else {
@@ -59,6 +52,9 @@ const Navbar = (props) => {
     const chatGPT = () => {
         if (chatGPTdropdownShow === "hidden") {
             setChatGPTDropdownShow("flex")
+            setResourseDropdownShow("hidden")
+            setAPIDropdownShow("hidden")
+            setCompanyDropdownShow("hidden")
         }
 
         else {
@@ -69,6 +65,9 @@ const Navbar = (props) => {
     const company = () => {
         if (companydropdownShow === "hidden") {
             setCompanyDropdownShow("flex")
+            setResourseDropdownShow("hidden")
+            setAPIDropdownShow("hidden")
+            setChatGPTDropdownShow("hidden")
         }
 
         else {
@@ -80,24 +79,32 @@ const Navbar = (props) => {
         let navColor = {
             beforeScroll: "bg-[#fff1d6]",
             afterScroll: "bg-white",
-            textBeforeScroll: "text-[#0000ff]",
-            textAfterScroll: "black"
+            textBeforeScroll: "[#0000ff]",
+            textAfterScroll: "black",
+            footerbgColor: "bg-[#fff1d6]",
         }
 
         dispatch(navcolor(navColor))
+        setResourseDropdownShow("hidden")
     }
 
     let openAI = () => {
         let navColor = {
             beforeScroll: "bg-transparent",
             afterScroll: "bg-black",
-            textBeforeScroll: "text-white",
-            textAfterScroll: "text-white"
+            textBeforeScroll: "white",
+            textAfterScroll: "white",
+            footerbgColor: "bg-black",
+
         }
         dispatch(navcolor(navColor))
+        setCompanyDropdownShow("hidden")
+        setResourseDropdownShow("hidden")
+        setAPIDropdownShow("hidden")
+        setChatGPTDropdownShow("hidden")
     }
     return (
-        <div className={`fixed w-full top-0 ${navbarColor} z-[100] text-5xl font-semibold  ${textColor} pb-5 `}>
+        <div className={`fixed w-full top-0 ${navbarColor ? navColor.afterScroll : navColor.beforeScroll} z-[100] text-5xl font-semibold  ${navbarColor ? `text-${navColor.textAfterScroll}` : `text-${navColor.textBeforeScroll}`} pb-5 `}>
             <div className='flex justify-between px-5 mt-5'>
                 <div className='flex justify-center items-center '>
                     <div>
@@ -109,7 +116,7 @@ const Navbar = (props) => {
                     <div className='ml-16'>
                         <ul className='flex space-x-8'>
                             <li>
-                                <div className='flex justify-center items-center  group' onClick={resourse}>
+                                <div className='flex justify-center items-center cursor-pointer  group' onClick={resourse}>
                                     <span className={`text-[21px] font-[400] relative after:w-0 after:h-[2px] after:bg-white after:absolute after:top-8 after:left-0 group-hover:after:w-full after:duration-500`}>Research</span>
                                     <span className={`${resoursedropdownShow === "hidden" ? "flex" : "hidden"} text-[21px] font-[400]`}>
                                         <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--chevron-down400 a-icon--text f-ui-1 a-icon--no-align flex" data-new="" aria-hidden="true" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="8 10.98 3.51 6.49 4.49 5.51 8 9.02 11.51 5.51 12.49 6.49 8 10.98"></polygon></svg>
@@ -119,8 +126,8 @@ const Navbar = (props) => {
                                         <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--chevron-up400 a-icon--text f-ui-1 a-icon--no-align flex" data-new="" aria-hidden="true" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="11.51 10.49 8 6.98 4.49 10.49 3.51 9.51 8 5.02 12.49 9.51 11.51 10.49"></polygon></svg>
                                     </span>
                                 </div>
-                                <div className={`${resoursedropdownShow}  flex-col absolute space-y-2 mt-4 ${navbarColor} p-4`}>
-                                    <Link to="/overview" onClick={researchOverview} className='font-[400] text-xl'>Overview</Link>
+                                <div className={`${resoursedropdownShow}  flex-col absolute space-y-2 mt-4 ${navbarColor ? navColor.afterScroll : navColor.beforeScroll} p-4`}>
+                                    <Link to="/research/overview" onClick={researchOverview} className='font-[400] text-xl'>Overview</Link>
                                     <Link to="/" className='font-[400] text-xl'>Index</Link>
                                     <Link to="/" className='font-[400] text-xl'>GPT-4</Link>
                                     <Link to="/" className='font-[400] text-xl'>DALL·E 3</Link>
@@ -128,7 +135,7 @@ const Navbar = (props) => {
                                 </div>
                             </li>
                             <li>
-                                <Link to="/" className='flex justify-center items-center  group' onClick={api}>
+                                <div  className='flex justify-center items-center cursor-pointer group' onClick={api}>
                                     <span className={`text-[21px] font-[400] relative after:w-0 after:h-[2px] after:bg-white after:absolute after:top-8 after:left-0 group-hover:after:w-full after:duration-500`}>API</span>
                                     <span className={`${apidropdownShow === "hidden" ? "flex" : "hidden"} text-[21px] font-[400]`}>
                                         <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--chevron-down400 a-icon--text f-ui-1 a-icon--no-align flex" data-new="" aria-hidden="true" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="8 10.98 3.51 6.49 4.49 5.51 8 9.02 11.51 5.51 12.49 6.49 8 10.98"></polygon></svg>
@@ -137,8 +144,8 @@ const Navbar = (props) => {
                                     <span className={`${apidropdownShow === "flex" ? "block" : "hidden"} text-[21px] font-[400]`}>
                                         <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--chevron-up400 a-icon--text f-ui-1 a-icon--no-align flex" data-new="" aria-hidden="true" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="11.51 10.49 8 6.98 4.49 10.49 3.51 9.51 8 5.02 12.49 9.51 11.51 10.49"></polygon></svg>
                                     </span>
-                                </Link>
-                                <div className={`${apidropdownShow}  flex-col absolute space-y-2 mt-4`}>
+                                </div>
+                                <div className={`${apidropdownShow}  flex-col absolute space-y-2 mt-4 ${navbarColor ? navColor.afterScroll : navColor.beforeScroll} px-2 pt-4`}>
                                     <Link to="/" className='font-[400] text-xl'>Overview</Link>
                                     <Link to="/" className='font-[400] text-xl'>Data Privacy</Link>
                                     <Link to="/" className='font-[400] text-xl'>Pricing</Link>
@@ -216,7 +223,7 @@ const Navbar = (props) => {
                             </span>
                         </li>
                         <li>
-                            <Link to="/" className='flex items-center justify-center border-2 border-white px-1 py-1 hover:bg-white hover:text-black'>
+                            <Link to="/" className={`flex items-center justify-center border-2 ${navbarColor ? `border-${navColor.textAfterScroll} `:`border-${navColor.textBeforeScroll}`  } px-1 py-1 hover:bg-white hover:text-black`}>
                                 <span>Try ChatGPT</span>
                                 <span>
                                     <svg data-v-cbc994d7="" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="a-icon--arrow-north-east400 a-icon--text a-icon--no-align  relative f-ui-1 " data-new="" aria-hidden="true" style={{ width: "1em", height: "1em" }}><polygon data-v-cbc994d7="" fill="currentColor" points="5 4.31 5 5.69 9.33 5.69 2.51 12.51 3.49 13.49 10.31 6.67 10.31 11 11.69 11 11.69 4.31 5 4.31"></polygon></svg>

@@ -1,14 +1,14 @@
 import { React, } from 'react'
 import { Link } from 'react-router-dom'
 
-const Footer = () => {
+const Footer = (props) => {
+  console.log(props.footer);
+  let footerColor = props.footer
   let scrolltoTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }
   return (
-    <div>
-    
-
+    <div className={`${footerColor.footerbgColor} text-${footerColor.textBeforeScroll} `}>
       <div className="pt-32 grid grid-cols-12 px-5">
         <Link to="/" className='col-span-4 '>
 
@@ -71,7 +71,7 @@ const Footer = () => {
       </div>
 
       <div className=' px-4 mt-20'>
-        <div className='w-full bg-white h-[1.5px]'></div>
+        <div className={`w-full bg-${footerColor.textBeforeScroll} h-[1.5px]`}></div>
       </div>
 
       <div className="grid grid-cols-12 px-5 mt-3">
@@ -101,32 +101,33 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className='bg-white mt-16'>
-        <div className='bg-black' style={{ marginTop: "0px", height: "23px" }}></div>
-        <div className='bg-black' style={{ marginTop: "1px", height: "22px" }}></div>
-        <div className='bg-black' style={{ marginTop: "2px", height: "21px" }}></div>
-        <div className='bg-black' style={{ marginTop: "3px", height: "20px" }}></div>
-        <div className='bg-black' style={{ marginTop: "4px", height: "19px" }}></div>
-        <div className='bg-black' style={{ marginTop: "5px", height: "18px" }}></div>
-        <div className='bg-black' style={{ marginTop: "6px", height: "17px" }}></div>
-        <div className='bg-black' style={{ marginTop: "7px", height: "16px" }}></div>
-        <div className='bg-black' style={{ marginTop: "8px", height: "15px" }}></div>
-        <div className='bg-black' style={{ marginTop: "9px", height: "14px" }}></div>
-        <div className='bg-black' style={{ marginTop: "10px", height: "13px" }}></div>
-        <div className='bg-black' style={{ marginTop: "11px", height: "12px" }}></div>
-        <div className='bg-black' style={{ marginTop: "12px", height: "11px" }}></div>
-        <div className='bg-black' style={{ marginTop: "13px", height: "10px" }}></div>
-        <div className='bg-black' style={{ marginTop: "14px", height: "9px" }}></div>
-        <div className='bg-black' style={{ marginTop: "15px", height: "8px" }}></div>
-        <div className='bg-black' style={{ marginTop: "16px", height: "7px" }}></div>
-        <div className='bg-black' style={{ marginTop: "17px", height: "6px" }}></div>
-        <div className='bg-black' style={{ marginTop: "18px", height: "5px" }}></div>
-        <div className='bg-black' style={{ marginTop: "19px", height: "4px" }}></div>
-        <div className='bg-black' style={{ marginTop: "20px", height: "3px" }}></div>
-        <div className='bg-black' style={{ marginTop: "21px", height: "2px" }}></div>
-        <div className='bg-black' style={{ marginTop: "22px", height: "1px" }}></div>
-        <div className='bg-black' style={{ marginTop: "23px", height: "0px" }}></div>
+      <div className={`mt-16 bg-${footerColor.textBeforeScroll}`}>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "0px", height: "23px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "1px", height: "22px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "2px", height: "21px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "3px", height: "20px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "4px", height: "19px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "5px", height: "18px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "6px", height: "17px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "7px", height: "16px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "8px", height: "15px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "9px", height: "14px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "10px", height: "13px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "11px", height: "12px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "12px", height: "11px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "13px", height: "10px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "14px", height: "9px" }}></div>
+        <div className={`${footerColor.footerbgColor} `} style={{ marginTop: "15px", height: "8px" }}></div>
+        <div className={`${footerColor.footerbgColor} `} style={{ marginTop: "16px", height: "7px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "17px", height: "6px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "18px", height: "5px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "19px", height: "4px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "20px", height: "3px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "21px", height: "2px" }}></div>
+        <div className={`${footerColor.footerbgColor}`} style={{ marginTop: "22px", height: "1px" }}></div>
+        <div className={`${footerColor.footerbgColor} h-[90px]`} style={{ marginTop: "0px", height: "0px" }}></div>
       </div>
+      <div className={`w-full h-[100px] bg-${footerColor.textBeforeScroll}`}></div>
 
     </div>
   )
