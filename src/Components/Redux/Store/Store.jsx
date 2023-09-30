@@ -1,6 +1,10 @@
 
 
-import { createStore } from 'redux';
+import storage  from 'redux-persist/lib/storage';
+import  { persistReducer } from 'redux-persist';
+import {  createStore } from 'redux';
+import persistStore from 'redux-persist/es/persistStore';
+
 
 const initialState = {
     beforeScroll: "bg-transparent",
@@ -23,6 +27,16 @@ const cardItem = (state = initialState, action) => {
     }
 }
 
-const store = createStore(cardItem);
+const persistConfig={
+    key:"root",
+    version:1,
+    storage
+}
 
-export { store };
+const persistedReducer = persistReducer( persistConfig ,cardItem)
+
+const store = createStore(persistedReducer);
+
+const persistor = persistStore(store)
+
+export { store , persistor };
