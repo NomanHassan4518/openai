@@ -100,6 +100,18 @@ const Navbar = (props) => {
         setResourseDropdownShow("hidden")
     }
 
+    let gpt4 =()=>{
+        let navColor = {
+            beforeScroll: "bg-black",
+            afterScroll: "bg-black",
+            textBeforeScroll: "white",
+            textAfterScroll: "white",
+            footerbgColor: "bg-black",
+        }
+        dispatch(navcolor(navColor))
+        setResourseDropdownShow("hidden")
+    }
+
     let openAI = () => {
         let navColor = {
             beforeScroll: "bg-transparent",
@@ -140,7 +152,7 @@ const Navbar = (props) => {
                                 <div className={`${resoursedropdownShow}  flex-col absolute space-y-2 mt-4 ${navbarColor ? navColor.afterScroll : navColor.beforeScroll} p-4`}>
                                     <Link to="/research/overview" onClick={researchOverview} className='font-[400] text-xl'>Overview</Link>
                                     <Link to="/research" onClick={researchIndex} className='font-[400] text-xl'>Index</Link>
-                                    <Link to="/" className='font-[400] text-xl'>GPT-4</Link>
+                                    <Link to="/gpt-4" className='font-[400] text-xl' onClick={gpt4}>GPT-4</Link>
                                     <Link to="/" className='font-[400] text-xl'>DALL·E 3</Link>
 
                                 </div>
